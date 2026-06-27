@@ -30,13 +30,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            overflow-x: hidden; /* Защита от горизонтальной прокрутки всего сайта */
+            overflow-x: hidden;
         }
 
         .container {
             width: 100%;
-            max-width: 480px; /* Идеально для экранов смартфонов */
-            padding: 40px 0; /* Убираем боковые отступы контейнера, чтобы слайдер уходил «в край» экрана */
+            max-width: 480px;
+            padding: 40px 0;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
@@ -63,8 +63,7 @@
             width: 145px;
             height: auto;
             margin-bottom: 10px;
-            filter: drop-shadow(0 0 2px var(--text-light))
-                    drop-shadow(0 0 8px var(--glow-color));
+            filter: drop-shadow(0 0 2px var(--text-light)) drop-shadow(0 0 8px var(--glow-color));
         }
 
         .brand-name {
@@ -137,7 +136,7 @@
             text-shadow: 0 0 10px var(--glow-ambient);
         }
 
-        /* --- ОПИСАНИЕ ОБОРУДОВАНИЯ --- */
+        /* --- ОБЩИЙ СТИЛЬ ДЛЯ ИНФО-БЛОКОВ --- */
         .info-section {
             width: 100%;
             background-color: var(--bg-card);
@@ -145,7 +144,7 @@
             border-radius: 12px;
             padding: 25px;
             box-sizing: border-box;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
         }
 
@@ -173,6 +172,32 @@
             font-weight: 400;
         }
 
+        /* --- БЛОК ПОДГОТОВКИ К ПРОЦЕДУРЕ --- */
+        .prep-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .prep-item {
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.6;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: rgba(245, 240, 235, 0.85);
+        }
+
+        .prep-marker {
+            color: var(--text-light);
+            font-size: 10px;
+            line-height: 1.8;
+        }
+
         /* --- ИНТЕРАКТИВНЫЙ ГОРИЗОНТАЛЬНЫЙ ПРАЙС --- */
         .slider-label {
             align-self: flex-start;
@@ -189,22 +214,22 @@
 
         .slider-wrapper {
             width: 100%;
-            overflow-x: auto; /* Позволяет крутить пальцем */
-            scroll-snap-type: x mandatory; /* Мягкое «прилипание» карточек при прокрутке */
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
             display: flex;
             gap: 15px;
-            padding: 0 20px 25px 20px; /* Отступы, чтобы карточки не резались */
+            padding: 0 20px 25px 20px;
             box-sizing: border-box;
             -webkit-overflow-scrolling: touch;
+            margin-bottom: 15px;
         }
 
-        /* Прячем стандартный некрасивый скроллбар */
         .slider-wrapper::-webkit-scrollbar {
             display: none;
         }
 
         .price-card {
-            flex: 0 0 85%; /* Каждая карточка занимает 85% экрана, намекая, что есть следующая */
+            flex: 0 0 85%;
             scroll-snap-align: center;
             background-color: var(--bg-card);
             border: 1px solid rgba(224, 159, 125, 0.1);
@@ -214,7 +239,6 @@
             box-shadow: 0 12px 25px rgba(0,0,0,0.4);
         }
 
-        /* Выделение карточки комплексов */
         .price-card.featured {
             border: 1px solid rgba(255, 211, 189, 0.3);
             box-shadow: 0 15px 30px rgba(224, 159, 125, 0.15);
@@ -260,7 +284,7 @@
         .price-benefit {
             display: block;
             font-size: 10px;
-            color: #a8e6cf; /* Мягкий пастельный зеленый для выгоды */
+            color: #a8e6cf;
             font-weight: 400;
             margin-top: 2px;
         }
@@ -315,7 +339,6 @@
 
     <div class="container">
 
-        <!-- Шапка -->
         <div class="header padded-content">
             <svg class="wave-container" viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg">
                 <path d="M 5,22 
@@ -331,17 +354,14 @@
             <div class="brand-subtitle">студия лазерной эпиляции</div>
         </div>
 
-        <!-- Слоган -->
         <div class="slogan-card padded-content">
             <div class="slogan-text">Твой дзен и <span class="slogan-cursive">идеальная кожа</span></div>
         </div>
 
-        <!-- Главная кнопка записи -->
         <div class="padded-content">
             <a href="https://dkd.su/g/ссылка-на-ваш-дикиди" class="cta-button">Записаться онлайн</a>
         </div>
 
-        <!-- Блок об оборудовании -->
         <div class="padded-content">
             <div class="info-section">
                 <h3 class="section-title">Наше оборудование</h3>
@@ -355,11 +375,9 @@
             </div>
         </div>
 
-        <!-- ИНТАКТИВНЫЙ ПРАЙС-СЛАЙДЕР -->
         <div class="slider-label">Наш Прайс-лист <span>(листайте вправо →)</span></div>
         <div class="slider-wrapper">
             
-            <!-- Карточка 1: Комплексы (Первая, как самая важная!) -->
             <div class="price-card featured">
                 <h3 class="section-title">Комплексы</h3>
                 <div class="price-list">
@@ -379,14 +397,13 @@
                         <span class="price-cost">4 190 ₽</span>
                     </div>
                     <div class="price-item">
-                        <span class="price-name">«Триумф»<span class="price-benefit">Любые 6 зон за 1 сеанс</span></span>
+                        <span class="price-name">«Триумф»<span class="price-benefit">Любые 5 зон за 1 сеанс</span></span>
                         <div class="price-dots"></div>
-                        <span class="price-cost">По запросу</span>
+                        <span class="price-cost">5 190 ₽</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Карточка 2: Лицо и шея -->
             <div class="price-card">
                 <h3 class="section-title">Лицо и шея</h3>
                 <div class="price-list">
@@ -408,7 +425,6 @@
                 </div>
             </div>
 
-            <!-- Карточка 3: Руки -->
             <div class="price-card">
                 <h3 class="section-title">Руки</h3>
                 <div class="price-list">
@@ -433,7 +449,6 @@
                 </div>
             </div>
 
-            <!-- Карточка 4: Ноги -->
             <div class="price-card">
                 <h3 class="section-title">Ноги</h3>
                 <div class="price-list">
@@ -455,7 +470,6 @@
                 </div>
             </div>
 
-            <!-- Карточка 5: Интимные зоны -->
             <div class="price-card">
                 <h3 class="section-title">Интимные зоны</h3>
                 <div class="price-list">
@@ -474,7 +488,6 @@
                 </div>
             </div>
 
-            <!-- Карточка 6: Тело -->
             <div class="price-card">
                 <h3 class="section-title">Тело</h3>
                 <div class="price-list">
@@ -498,16 +511,42 @@
 
         </div>
 
-        <!-- Дополнительные ссылки -->
+        <div class="padded-content">
+            <div class="info-section">
+                <h3 class="section-title">Подготовка к процедуре</h3>
+                <ul class="prep-list">
+                    <li class="prep-item">
+                        <span class="prep-marker">◆</span>
+                        <span>За 2 недели до процедуры исключить антибиотики (особенно тетрациклинового ряда) и препараты, повышающие светочувствительность кожи (фотосенсибилизаторы), а также отказаться от шугаринга, воска, эпилятора и пинцета. Можно удалять волосы обычным бритвенным станком.</span>
+                    </li>
+                    <li class="prep-item">
+                        <span class="prep-marker">◆</span>
+                        <span>За 1 неделю до процедуры исключить активный загар на солнце, посещение солярия и использование автозагара.</span>
+                    </li>
+                    <li class="prep-item">
+                        <span class="prep-marker">◆</span>
+                        <span>За 3 дня до процедуры не посещайте баню, сауну и бассеи́н, а также не используйте жесткие мочалки, скрабы и пилинги в зоне эпиляции.</span>
+                    </li>
+                    <li class="prep-item">
+                        <span class="prep-marker">◆</span>
+                        <span>За 1 день до процедуры тщательно сбрить волосы бритвенным станком в зоне эпиляции. В день процедуры бриться не стоит: так кожа не успеет восстановиться. Чтобы процедура прошла максимально безопасно и эффективно, позаботьтесь заранее.</span>
+                    </li>
+                    <li class="prep-item">
+                        <span class="prep-marker">◆</span>
+                        <span>В день процедуры не наносите в зоне эпиляции крем, спиртосодержащие и кислотосодержащие лосьоны, дезодоранты и масла.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
         <div class="padded-content">
             <div class="social-links">
-                <a href="#" class="social-btn">Наш Telegram-канал</a>
-                <a href="#" class="social-btn">Наш Instagram</a>
+                <a href="#" class="social-btn">Мы в VK</a>
+                <a href="#" class="social-btn">Мы в Instagram</a>
             </div>
 
-            <!-- Контакты -->
             <div class="footer-contacts">
-                г. Москва, ул. Премиальная, д. 10<br>
+                г. Сelyatino, коммерческое пространство ГЛАДЬ<br>
                 Ежедневно с 10:00 до 22:00<br>
                 Тел: +7 (960) 657-54-74
             </div>
